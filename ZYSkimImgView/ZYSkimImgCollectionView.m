@@ -57,23 +57,28 @@
     
     cell.backgroundColor = [UIColor orangeColor];
     UIImageView *imgV = [cell viewWithTag:2017];
+    imgV.contentMode = UIViewContentModeScaleAspectFill;
+    cell.layer.masksToBounds = YES;
     if (imgV == nil) {
         imgV = [[UIImageView alloc] initWithFrame:cell.bounds];
         imgV.tag = 2017;
         [cell addSubview:imgV];
     }
-    [imgV sd_setImageWithURL:[NSURL URLWithString:_imageArray[indexPath.row]]];
+   
+    [imgV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageArray[indexPath.row]]]];
     return cell;
     
 }
 #define mark单元格得点击方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     ZYOrangeSkimViewController *viewC = [[ZYOrangeSkimViewController alloc] init];
-    [self.viewController.navigationController pushViewController:viewC animated:YES];
+    viewC.hidesBottomBarWhenPushed = YES;
+    [self.zyviewController.navigationController pushViewController:viewC animated:YES];
     
-    if (self.viewController.navigationController == nil) {
+    if (self.zyviewController.navigationController == nil) {
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewC];
-        [self.viewController presentViewController:nav animated:YES completion:nil];
+        
+        [self.zyviewController presentViewController:nav animated:YES completion:nil];
     }
     
     viewC.currentIndex = indexPath.row;

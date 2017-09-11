@@ -60,15 +60,18 @@
 - (void)setImageUrl:(NSString *)imageUrl{
     _imageUrl = imageUrl;
     //防止图片拉伸
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrl]];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrl] placeholderImage:[UIImage imageNamed:@"placehoder"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageUrl]]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageUrl]] placeholderImage:[UIImage imageNamed:@"placehoder"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         //计算当前图片的下载进度
         
         NSLog(@"%.2f",1.0 *receivedSize / expectedSize);
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (imageView.image == nil) {
+            return ;
+        }
         //demo中是使用的本地图片
         imageView.image = image;
         CGFloat imgH = image.size.height;
@@ -141,8 +144,8 @@
             
             //点击一次隐藏navBar
 //                    [self heddenBar];
-            [self.viewController.navigationController popViewControllerAnimated:YES];
-            [self.viewController dismissViewControllerAnimated:YES completion:nil];
+            [self.zyviewController.navigationController popViewControllerAnimated:YES];
+            [self.zyviewController dismissViewControllerAnimated:YES completion:nil];
             break;
         case 2:
             
@@ -162,11 +165,11 @@
 //隐藏navBar
 - (void)heddenBar{
     //取到点击得视图
-    UINavigationBar *bar = self.viewController.navigationController.navigationBar;
+    UINavigationBar *bar = self.zyviewController.navigationController.navigationBar;
     //bar得似有属性
     BOOL ishidden = !bar.isHidden;
     //设置是否隐藏navigationBar
-    [self.viewController.navigationController setNavigationBarHidden:ishidden animated:YES];
+    [self.zyviewController.navigationController setNavigationBarHidden:ishidden animated:YES];
     
 }
 
