@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "ZYSkimImgCollectionView.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    ZYSkimImgCollectionView *colView = [[ZYSkimImgCollectionView alloc] initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width) collectionViewLayout:[UICollectionViewFlowLayout new]];
+    colView.imageArray = @[@"http://img.taopic.com/uploads/allimg/120727/201995-120HG1030762.jpg",@"http://img.taopic.com/uploads/allimg/120727/201995-120HG1030762.jpg",@"http://img.taopic.com/uploads/allimg/120727/201995-120HG1030762.jpg"];
+    [self.view addSubview:colView];
     
 }
 

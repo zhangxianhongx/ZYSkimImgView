@@ -65,7 +65,7 @@
         [cell addSubview:imgV];
     }
    
-    [imgV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageArray[indexPath.row]]]];
+    [imgV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_imageArray[indexPath.row]]]];
     return cell;
     
 }
