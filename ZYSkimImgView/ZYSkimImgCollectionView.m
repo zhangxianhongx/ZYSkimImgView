@@ -64,8 +64,14 @@
         imgV.tag = 2017;
         [cell addSubview:imgV];
     }
-   
-    [imgV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageArray[indexPath.row]]]];
+   //判断是否是本地图片
+    UIImage *image = [UIImage imageNamed:_imageArray[indexPath.row]];
+    if (image) {
+        imgV.image = image;
+    }else{
+        [imgV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_imageArray[indexPath.row]]]];
+    }
+    
     return cell;
     
 }

@@ -61,8 +61,28 @@
     _imageUrl = imageUrl;
     //防止图片拉伸
     imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageUrl]]];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BaseImgUrl,_imageUrl]] placeholderImage:[UIImage imageNamed:@"placehoder"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    //判断是否是本地图片
+    UIImage *image = [UIImage imageNamed:_imageUrl];
+    if (image) {
+        imageView.image = image;
+        CGFloat imgH = image.size.height;
+        CGFloat imgW = image.size.width;
+        if (imgW/imgH > self.bounds.size.width/self.bounds.size.height) {
+            CGFloat imgVH = self.bounds.size.width*imgH/imgW;
+            scro.frame = CGRectMake(0, self.bounds.size.height/2.0-imgVH/2.0, self.bounds.size.width, imgVH);
+            imageView.frame = scro.bounds;
+        }else{
+            CGFloat imgVW = self.bounds.size.height * imgW/imgH;
+            scro.frame = CGRectMake(self.bounds.size.width/2.0-imgVW/2.0, 0, imgVW, self.bounds.size.height);
+            imageView.frame = scro.bounds;
+        }
+        return;
+    }
+    
+    
+    //网络图片
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_imageUrl]]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_imageUrl]] placeholderImage:[UIImage imageNamed:@"placehoder"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         //计算当前图片的下载进度
         

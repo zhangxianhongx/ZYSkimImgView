@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9098AA2F21ABD9680046E3B2 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 9098AA2E21ABD9680046E3B2 /* 11.png */; };
 		E8E421E71F662CC200C49475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E421E61F662CC200C49475 /* main.m */; };
 		E8E421EA1F662CC200C49475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E421E91F662CC200C49475 /* AppDelegate.m */; };
 		E8E421ED1F662CC200C49475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E421EC1F662CC200C49475 /* ViewController.m */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9098AA2E21ABD9680046E3B2 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		E8E421E21F662CC200C49475 /* ZYSkimImgViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSkimImgViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8E421E61F662CC200C49475 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8E421E81F662CC200C49475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		E8E421E41F662CC200C49475 /* ZYSkimImgViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9098AA2E21ABD9680046E3B2 /* 11.png */,
 				E8E421E81F662CC200C49475 /* AppDelegate.h */,
 				E8E421E91F662CC200C49475 /* AppDelegate.m */,
 				E8E421EB1F662CC200C49475 /* ViewController.h */,
@@ -373,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9098AA2F21ABD9680046E3B2 /* 11.png in Resources */,
 				E8E421F51F662CC200C49475 /* LaunchScreen.storyboard in Resources */,
 				E8E421F21F662CC200C49475 /* Assets.xcassets in Resources */,
 				E8E422491F662E4E00C49475 /* LICENSE in Resources */,
